@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import ErrorPage from "./routes/ErrorPage";
 import LandingPage from "./routes/LandingPage";
+import TestingPage from "./routes/TestingPage";
 
 import "./styles/base.css";
 
@@ -14,6 +15,11 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <LandingPage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/testing",
+    element: <TestingPage />,
     errorElement: <ErrorPage />,
   },
 ]);
