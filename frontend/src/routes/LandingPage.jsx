@@ -38,7 +38,11 @@ export default function LandingPage() {
               <span className="oh__inner">Back to the article</span>
             </a>
           </div>
-          <a className="frame__prev" href="https://devpost.com/software/frai">
+          <a
+            className="frame__prev"
+            href="https://devpost.com/software/frai"
+            target="_blank"
+          >
             Devpost
           </a>
           <div className="cdawrap" id="cdawrap">
