@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import OpenAIService from "../api/service/openAIService";
 import { Button } from "@/components/ui/button";
 import {
@@ -18,6 +18,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { jellyTriangle } from "ldrs";
+
+import "./css/Recipecard.css";
 
 export default function RecipeCard() {
   const [ingredients, setIngredients] = useState("");
@@ -25,8 +28,13 @@ export default function RecipeCard() {
   const [cuisine, setCuisine] = useState("");
   const [cookingTime, setCookingTime] = useState("");
   const [complexity, setComplexity] = useState("");
+  const [recipe, setRecipe] = useState("");
+  const [buttonDisable, setButtonDisable] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
+  jellyTriangle.register();
 
   const handleSubmit = async () => {
+    setIsLoading(true);
     const recipeData = {
       ingredients,
       mealType,
@@ -37,114 +45,148 @@ export default function RecipeCard() {
     console.log(recipeData);
     try {
       const response = await OpenAIService.getRecipe(recipeData);
+      setIsLoading(false);
+      setRecipe(response.data.choices[0].message.content);
       console.log(response.data);
     } catch (e) {
       console.log(e);
     }
   };
 
+  useEffect(() => {
+    if (
+      ingredients === "" ||
+      mealType === "" ||
+      cuisine === "" ||
+      cookingTime === "" ||
+      complexity === ""
+    ) {
+      setButtonDisable(true);
+    } else {
+      setButtonDisable(false);
+    }
+  }, [ingredients, mealType, cuisine, cookingTime, complexity]);
+
   return (
     <>
-      <div className="recipe-page-wrapper">
-        <div>Wassup Nignogs</div>
-
-        <input
-          id="ingredients"
-          type="text"
-          placeholder="Enter ingredients"
-          value={ingredients}
-          onChange={(e) => setIngredients(e.target.value)}
-        />
-
-        <div></div>
-
-        <select
-          id="mealType"
-          value={mealType}
-          onChange={(e) => setmealType(e.target.value)}
-        >
-          <option value="Breakfast">Breakfast</option>
-          <option value="Lunch">Lunch</option>
-          <option value="Dinner">Dinner</option>
-          <option value="Snack">Snack</option>
-        </select>
-
-        <div></div>
-
-        <input
-          id="cuisine"
-          type="text"
-          placeholder="e.g., Chinese, Japanese"
-          value={cuisine}
-          onChange={(e) => setCuisine(e.target.value)}
-        />
-
-        <div></div>
-
-        <select
-          id="cookingTime"
-          value={cookingTime}
-          onChange={(e) => setCookingTime(e.target.value)}
-        >
-          <option value="Less than 30 mins">Less than 30 mins</option>
-          <option value="Less than 1 hour">Less than 1 hour</option>
-          <option value="Less than 2 hours">Less than 2 hours</option>
-          <option value="More than 2 hours">More than 2 hours</option>
-        </select>
-
-        <div></div>
-
-        <select
-          id="complexity"
-          value={complexity}
-          onChange={(e) => setComplexity(e.target.value)}
-        >
-          <option value="Beginner">Beginner</option>
-          <option value="Intermediate">Intermediate</option>
-          <option value="Advanced">Advanced</option>
-        </select>
-
-        <div></div>
-
-        <button type="button" onClick={handleSubmit}>
-          Let's get cookin'
-        </button>
-
-        <Card className="w-[350px]">
+      <div className="recipe-page-wrapper opacity-60">
+        <Card className="w-[350px] bg-stone-800 opacity-80 rounded-xl">
           <CardHeader>
-            <CardTitle>Create project</CardTitle>
-            <CardDescription>
-              Deploy your new project in one-click.
-            </CardDescription>
+            <CardTitle>Recipe Generator</CardTitle>
+            <CardDescription>Generate unique recipes!</CardDescription>
           </CardHeader>
           <CardContent>
             <form>
               <div className="grid w-full items-center gap-4">
                 <div className="flex flex-col space-y-1.5">
-                  <Label htmlFor="name">Name</Label>
-                  <Input id="name" placeholder="Name of your project" />
+                  <Label htmlFor="name">Ingredients</Label>
+                  <Input
+                    id="name"
+                    placeholder="Enter ingredients..."
+                    autoComplete="off"
+                    onChange={(e) => setIngredients(e.target.value)}
+                  />
                 </div>
                 <div className="flex flex-col space-y-1.5">
-                  <Label htmlFor="framework">Framework</Label>
-                  <Select>
-                    <SelectTrigger id="framework">
+                  <Label htmlFor="mealType">Meal Type</Label>
+                  <Select onValueChange={(value) => setmealType(value)}>
+                    <SelectTrigger id="mealType">
                       <SelectValue placeholder="Select" />
                     </SelectTrigger>
-                    <SelectContent position="popper">
-                      <SelectItem value="next">Next.js</SelectItem>
-                      <SelectItem value="sveltekit">SvelteKit</SelectItem>
-                      <SelectItem value="astro">Astro</SelectItem>
-                      <SelectItem value="nuxt">Nuxt.js</SelectItem>
+                    <SelectContent
+                      position="popper"
+                      className="bg-stone-800 opacity-80"
+                    >
+                      <SelectItem value="breakfast">Breakfast</SelectItem>
+                      <SelectItem value="lunch">Lunch</SelectItem>
+                      <SelectItem value="dinner">Dinner</SelectItem>
+                      <SelectItem value="snack">Snack</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="flex flex-col space-y-1.5">
+                  <Label htmlFor="name">Cuisine</Label>
+                  <Input
+                    id="name"
+                    placeholder="e.g. Chinese, Japanese..."
+                    autoComplete="off"
+                    onChange={(e) => setCuisine(e.target.value)}
+                  />
+                </div>
+                <div className="flex flex-col space-y-1.5">
+                  <Label htmlFor="cookingType">cookingTime</Label>
+                  <Select onValueChange={(value) => setCookingTime(value)}>
+                    <SelectTrigger id="cookingType">
+                      <SelectValue placeholder="Select" />
+                    </SelectTrigger>
+                    <SelectContent
+                      position="popper"
+                      className="bg-stone-800 opacity-80"
+                    >
+                      <SelectItem value="lessThan30">
+                        Less than 30 mins
+                      </SelectItem>
+                      <SelectItem value="lessThan1">
+                        Less than 1 hour
+                      </SelectItem>
+                      <SelectItem value="lessThan2">
+                        Less than 2 hours
+                      </SelectItem>
+                      <SelectItem value="moreThan2">
+                        More than 2 hours
+                      </SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="flex flex-col space-y-1.5">
+                  <Label htmlFor="complexity">Complexity</Label>
+                  <Select onValueChange={(value) => setComplexity(value)}>
+                    <SelectTrigger id="complexity">
+                      <SelectValue placeholder="Select" />
+                    </SelectTrigger>
+                    <SelectContent
+                      position="popper"
+                      className="bg-stone-800 opacity-80"
+                    >
+                      <SelectItem value="beginner">Beginner</SelectItem>
+                      <SelectItem value="intermediate">Intermediate</SelectItem>
+                      <SelectItem value="advanced">Advanced</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
               </div>
             </form>
           </CardContent>
-          <CardFooter className="flex justify-between">
-            <Button variant="outline">Cancel</Button>
-            <Button>Deploy</Button>
+          <CardFooter className="flex justify-center">
+            <Button
+              onClick={handleSubmit}
+              variant="outline"
+              disabled={buttonDisable}
+            >
+              Lets get cookin'
+            </Button>
           </CardFooter>
+        </Card>
+
+        <Card className="w-[550px] min-h-[620px] max-h-[620px] bg-stone-800 opacity-80 rounded-xl m-10">
+          <CardHeader>
+            <CardTitle className="flex justify-center">Recipe</CardTitle>
+          </CardHeader>
+          <CardContent className="flex justify-center max-h-[500px] flex flex-col">
+            {isLoading ? (
+              <div className="h-[400px] flex flex-col justify-center items-center">
+                <l-jelly-triangle
+                  size="30"
+                  speed="1.75"
+                  color="white"
+                ></l-jelly-triangle>
+              </div>
+            ) : recipe === "" ? (
+              <div className="text-center">Recipe will be shown here...</div>
+            ) : (
+              <div className="whitespace-pre-line overflow-auto">{recipe}</div>
+            )}
+          </CardContent>
         </Card>
       </div>
     </>

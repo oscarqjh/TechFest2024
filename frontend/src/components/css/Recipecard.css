@@ -1,0 +1,10 @@
+.recipe-page-wrapper {
+  width: 100%;
+  height: 100vh;
+  background-image: url(/img/food3.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
