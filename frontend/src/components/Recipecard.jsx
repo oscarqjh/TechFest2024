@@ -78,7 +78,11 @@ export default function RecipeCard({ onSubmit }) {
         <option value="Advanced">Advanced</option>
       </select>
 
-      <button onClick={handleSubmit}>Submit</button>
+      <div></div>
+
+      <button type="button" onClick={handleSubmit}>
+        Let's get cookin'
+      </button>
     </>
   );
 }
