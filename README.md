@@ -1,7 +1,9 @@
 # Tech Fest 2024
 
-# FrAI*(/fraɪ/)*
+# FrAI_(/fraɪ/)_
 "Turning ordinary ingredients into extraordinary recipes."
+
+---
 
 <div>
 <img src="http://img.shields.io/badge/Javascript-fcd400?style=flat-square&logo=javascript&logoColor=black" alt="Javascript">
