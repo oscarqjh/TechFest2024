@@ -30,7 +30,7 @@ export default function RecipeCard() {
   const [complexity, setComplexity] = useState("");
   const [recipe, setRecipe] = useState("");
   const [buttonDisable, setButtonDisable] = useState(true);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   jellyTriangle.register();
 
   const handleSubmit = async () => {
