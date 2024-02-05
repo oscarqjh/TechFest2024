@@ -1,6 +1,7 @@
 # Tech Fest 2024
 
-###FrAI_(/fraɪ/)_
+# FrAI*(/fraɪ/)*
+"Turning ordinary ingredients into extraordinary recipes."
 
 <div>
 <img src="http://img.shields.io/badge/Javascript-fcd400?style=flat-square&logo=javascript&logoColor=black" alt="Javascript">
@@ -13,15 +14,15 @@
 <img src="https://img.shields.io/badge/Axios-5A29E4?style=flat-square&logo=axios&logoColor=white" alt="Axios">
 </div>
 
-### Team Member:
+### Team Members:
 
 - [Oscar Qian](https://github.com/oscarqjh)
 - [Iain Roderick Tay](https://github.com/eeyearn)
 - [Lee Cheng Yao](https://github.com/chengyaolee)
 - [Zane Yee Sun]()
 
-# Website Link: https://tech-fest2024.vercel.app/
-# Video Demo Link:
+### Website Link: https://tech-fest2024.vercel.app/
+### Video Demo Link:
 
 ---
 
