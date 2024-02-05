@@ -1,6 +1,5 @@
 // src/components/Chatbot.js
 import React, { useState } from "react";
-import { OpenAIHttp } from "./common";
 import OpenAIService from "./service/openAIService";
 import { Input } from "@/components/ui/input";
 
@@ -30,13 +29,12 @@ const Chatbot = (props) => {
   ];
 
   const addItem = (newItem) => {
-    // console.log(newItem)
     setHistory((prevArray) => [...prevArray, newItem]);
-    // console.log("history list", history)
   };
 
   const sendMessage = async () => {
     console.log("clicked");
+    setInput("");
 
     try {
       const data = {
@@ -52,7 +50,6 @@ const Chatbot = (props) => {
       const thisresponse = await OpenAIService.askfrAIbot(data);
       console.log(thisresponse.data);
       setResponse(thisresponse.data);
-      // console.log(response.choices[0].message.content)
       addItem(thisresponse.data.choices[0].message.content);
       setError(null); // Clear any previous errors
     } catch (error) {
