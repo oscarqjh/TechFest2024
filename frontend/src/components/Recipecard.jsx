@@ -79,6 +79,15 @@ return (
         <option value="Intermediate">Intermediate</option>
         <option value="Advanced">Advanced</option>
     </select>
+
+    <div></div>
+
+    <button
+        type="button"
+        onClick={handleSubmit}
+    >
+        Let's get cookin'
+    </button>
         
     </>
 )
