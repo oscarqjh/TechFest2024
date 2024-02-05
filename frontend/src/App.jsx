@@ -1,43 +1,43 @@
-import RecipeCard from './components/Recipecard';
-import React, {useEffect, useRef, useState } from "react";
+import RecipeCard from "./components/Recipecard";
+import React, { useEffect, useRef, useState } from "react";
 
 export default function App() {
-    const[recipeData, setRecipeData] = useState(null);
-    const[recipeText, setRecipeText] = useState("");
+  const [recipeData, setRecipeData] = useState(null);
+  const [recipeText, setRecipeText] = useState("");
 
-    let eventSourceRef = useRef(null)
+  let eventSourceRef = useRef(null);
 
-    useEffect(()=>{
-        if(recipeData) {
-
-        }
-    }, [recipeData])
-
-    const initializeEvenStream = () => {
-        const recipeInputs = {... recipeData};
-
-        const queryParams = new URLSearchParams(recipeInputs).toString();
-        const url = `http://localhost:3001/recipeStream?${queryParams}`;
-        eventSourceRef.current = new EventSource(url);
-        eventSourceRef.current.onmessage = (event) => {
-            const data = JSON.parse(event.data);
-
-            if(data.action === 'close') {
-                closeEventStream()
-            } else if (data.action === 'chunk') {
-                setRecipeText((prev) => prev + data.chunk)
-            }
-        }
+  useEffect(() => {
+    if (recipeData) {
     }
+  }, [recipeData]);
 
-    async function onSubmit(data) {
-        setRecipeText('')
-        setRecipeData(data);
-    }
+  const initializeEvenStream = () => {
+    const recipeInputs = { ...recipeData };
 
-return 
-<>
-<RecipeCard />
-<div>Test</div>
-</>
+    const queryParams = new URLSearchParams(recipeInputs).toString();
+    const url = `http://localhost:3001/recipeStream?${queryParams}`;
+    eventSourceRef.current = new EventSource(url);
+    eventSourceRef.current.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+
+      if (data.action === "close") {
+        closeEventStream();
+      } else if (data.action === "chunk") {
+        setRecipeText((prev) => prev + data.chunk);
+      }
+    };
+  };
+
+  async function onSubmit(data) {
+    setRecipeText("");
+    setRecipeData(data);
+  }
+
+  return (
+    <>
+      <RecipeCard />
+      <div>Test</div>
+    </>
+  );
 }
