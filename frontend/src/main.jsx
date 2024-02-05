@@ -13,7 +13,7 @@ import App from "./routes/App";
 
 import "./styles/base.css";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <LandingPage />,

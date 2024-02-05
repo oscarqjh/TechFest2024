@@ -193,7 +193,7 @@ export default function RecipeCard() {
           </CardFooter>
         </Card>
 
-        <Card className="w-[550px] h-[650px] bg-stone-800 opacity-80 rounded-xl m-10">
+        <Card className="w-[600px] h-[650px] bg-stone-800 opacity-80 rounded-xl m-5">
           <CardHeader>
             <CardTitle className="flex justify-center">Recipe</CardTitle>
           </CardHeader>
@@ -228,9 +228,8 @@ export default function RecipeCard() {
             <CardTitle className="flex justify-center">Ask frAI</CardTitle>
           </CardHeader>
           <CardContent className="flex justify-start mb-10 h-[600px] flex flex-col">
-            <Chatbot context={recipe}/>
+            <Chatbot context={recipe} disableButton={recipe === ""} />
           </CardContent>
-          
         </Card>
       </div>
     </>
