@@ -1,10 +1,14 @@
 import axios from "axios";
 
-// export default axios.create({
-//   baseURL: //gpt-3-api-url,
+const openaiAPIKey = import.meta.env.VITE_OPENAI_API_KEY
 
-//   credentials: true,
-//   headers: {
-//     "Content-type": "application/json",
-//   },
-// });
+const OpenAIHttp = axios.create({
+  baseURL: "https://api.openai.com/v1/",
+  credentials: true,
+  headers: {
+    "Content-type": "application/json",
+    "Authorization": `Bearer ${openaiAPIKey}`
+  },
+});
+
+export {OpenAIHttp}
