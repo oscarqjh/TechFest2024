@@ -21,7 +21,7 @@
 - [Oscar Qian](https://github.com/oscarqjh)
 - [Iain Roderick Tay](https://github.com/eeyearn)
 - [Lee Cheng Yao](https://github.com/chengyaolee)
-- [Zane Yee Sun]()
+- [Zane Yee Sun](https://github.com/zazzane)
 
 ### Website Link: https://tech-fest2024.vercel.app/
 
