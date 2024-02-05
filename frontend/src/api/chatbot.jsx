@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { OpenAIHttp } from './common';
 import OpenAIService from './service/openAIService';
+import { Input } from "@/components/ui/input";
 
 const Chatbot = () => {
   const [input, setInput] = useState('');
@@ -92,18 +93,9 @@ const Chatbot = () => {
           </div>
         ))}
       </div>
-      <div>
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Type your message..."
-        />
-        <button onClick={sendMessage}>Send</button>
-      </div>
-      <div>
+      <div className="h-[450px] mt-0 overflow-auto whitespace-pre-line">
           {/* returning GPT chatbot response */}
-          GPT response will be displayed below
+            <i className="text-sm">GPT response will be displayed below</i>
 
           {haveError ? ( /* haveError TRUE */
             <div className="assistant-response">
@@ -114,13 +106,27 @@ const Chatbot = () => {
             <div className="assistant-response">
             <ul>
             {history.map((item, index) => (
-              <li key={index} >
-                {index % 2 === 0? "User":"FrAI"}:{item}
+              <li key={index} className="mt-5">
+                {index % 2 === 0? "You":"FrAI"}:{item}
               </li>
             ))}
             </ul>
           </div>
           )}
+      </div>
+
+      {/* <div className="h-[400px]"> </div> */}
+
+      <div className='flex mt-5'>
+        <Input
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="Ask for more details..."
+          className="font-medium text-white w-5/6"
+        />
+        <button onClick={sendMessage} type="button" className="w-1/6 text-sm text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Send</button>
+
       </div>
     </div>
   );
