@@ -139,7 +139,7 @@ export default function RecipeCard() {
                   />
                 </div>
                 <div className="flex flex-col space-y-1.5">
-                  <Label htmlFor="cookingType">cookingTime</Label>
+                  <Label htmlFor="cookingType">Cooking Time</Label>
                   <Select onValueChange={(value) => setCookingTime(value)}>
                     <SelectTrigger id="cookingType">
                       <SelectValue placeholder="Select" />
@@ -188,7 +188,7 @@ export default function RecipeCard() {
               variant="outline"
               disabled={buttonDisable}
             >
-              Lets get cookin'
+              Let's get cookin'
             </Button>
           </CardFooter>
         </Card>
@@ -225,7 +225,7 @@ export default function RecipeCard() {
 
         <Card className="w-[550px] h-[650px] bg-stone-800 opacity-80 rounded-xl m-10">
           <CardHeader>
-            <CardTitle className="flex justify-center">Ask frAI</CardTitle>
+            <CardTitle className="flex justify-center">Ask FrAI</CardTitle>
           </CardHeader>
           <CardContent className="flex justify-start mb-10 h-[600px] flex flex-col">
             <Chatbot context={recipe} disableButton={recipe === ""} />
