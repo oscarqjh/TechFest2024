@@ -34,10 +34,11 @@ export default function LandingPage() {
                   d="M18.25 15.5a.75.75 0 00.75-.75v-9a.75.75 0 00-.75-.75h-9a.75.75 0 000 1.5h7.19L6.22 16.72a.75.75 0 101.06 1.06L17.5 7.56v7.19c0 .414.336.75.75.75z"
                 ></path>
               </svg>
+
               <span className="oh__inner">Back to the article</span>
             </a>
           </div>
-          <a className="frame__prev" href="">
+          <a className="frame__prev" href="https://devpost.com/software/frai">
             Devpost
           </a>
           <div className="cdawrap" id="cdawrap">
@@ -63,7 +64,9 @@ export default function LandingPage() {
             <div className="preview__title">
               <h2 className="preview__title-main">
                 <span className="oh">
-                  <span className="oh__inner">FrAI</span>
+                  <span className="oh__inner">
+                    <strong>FrAI</strong>(/fraɪ/)
+                  </span>
                 </span>
                 {/* <span className="oh">
                   <span className="oh__inner"></span>
