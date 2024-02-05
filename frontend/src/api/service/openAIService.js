@@ -19,23 +19,44 @@ const getRecipe = (data) => {
     "Also givve the recipe a suitable name in its local language based on cuisine performance."
   );
 
-  const messages = [
-    {
-      role: "system",
-      content: prompt.join(" "),
-    },
-  ];
 
   const finalData = {
     model: "gpt-3.5-turbo",
-    messages: messages,
+    messages:[
+      {
+        role: "system",
+        content: prompt.join(" "),
+      },
+    ],
   };
 
   return OpenAIHttp.post("/chat/completions", finalData);
 };
 
+const askfrAIbot = (data) => {
+  const prompt = [];
+  // console.log(data.messages)
+  prompt.push(data.messages[0].content);
+  prompt.push(
+    "Please provide clear and concise answers. Reply this within 20-30 words."
+  );
+  
+
+  const finalData = {
+    model: "gpt-3.5-turbo",
+    messages: [
+      {
+        role: "user",
+        content: prompt.join(" "),
+      },
+    ], 
+  }
+  return OpenAIHttp.post("/chat/completions", finalData)
+}
+
 const OpenAIService = {
   getRecipe,
+  askfrAIbot
 };
 
 export default OpenAIService;
