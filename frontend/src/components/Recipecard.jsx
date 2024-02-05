@@ -19,7 +19,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { jellyTriangle } from "ldrs";
-
+import Chatbot from "../api/chatbot";
 import "./css/Recipecard.css";
 import { Link } from "react-router-dom";
 
@@ -90,7 +90,7 @@ export default function RecipeCard() {
         </span>
       </div>
       <div className="recipe-page-wrapper opacity-60">
-        <Card className="w-[350px] bg-stone-800 opacity-80 rounded-xl">
+        <Card className="w-[550px] h-[650px] bg-stone-800 opacity-80 rounded-xl m-10">
           <CardHeader>
             <CardTitle>Recipe Generator</CardTitle>
             <CardDescription>Generate unique recipes!</CardDescription>
@@ -188,7 +188,7 @@ export default function RecipeCard() {
           </CardFooter>
         </Card>
 
-        <Card className="w-[550px] min-h-[620px] max-h-[620px] bg-stone-800 opacity-80 rounded-xl m-10">
+        <Card className="w-[550px] h-[650px] bg-stone-800 opacity-80 rounded-xl m-10">
           <CardHeader>
             <CardTitle className="flex justify-center">Recipe</CardTitle>
           </CardHeader>
@@ -207,6 +207,16 @@ export default function RecipeCard() {
               <div className="whitespace-pre-line overflow-auto">{recipe}</div>
             )}
           </CardContent>
+        </Card>
+
+        <Card className="w-[550px] h-[650px] bg-stone-800 opacity-80 rounded-xl m-10">
+          <CardHeader>
+            <CardTitle className="flex justify-center">Ask frAI</CardTitle>
+          </CardHeader>
+          <CardContent className="flex justify-start mb-10 h-[600px] flex flex-col">
+            <Chatbot />
+          </CardContent>
+          
         </Card>
       </div>
     </>
