@@ -9,19 +9,19 @@ const OpenAIHttp = axios.create({
   credentials: true,
   headers: {
     "Content-type": "application/json",
-    "Authorization": `Bearer ${openaiAPIKey}`
+    Authorization: `Bearer ${openaiAPIKey}`,
   },
 });
 
 // Service to call HuggingFace API for Image Generation
 const ImgGenHttp = axios.create({
-    baseURL: "https://api-inference.huggingface.co",
-    credentials: true,
-    headers: {
-        "Authorization": `Bearer ${hfAPIKey}`,
-        "Content-Type": "application/json"
-    },
-    responseType: 'arraybuffer'
+  baseURL: "https://api-inference.huggingface.co",
+  credentials: true,
+  headers: {
+    Authorization: `Bearer ${hfAPIKey}`,
+    "Content-Type": "application/json",
+  },
+  responseType: "arraybuffer",
 });
 
 export { OpenAIHttp, ImgGenHttp };

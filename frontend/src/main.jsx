@@ -26,10 +26,10 @@ const router = createBrowserRouter([
   },
   {
     path: "/test",
-    element: <TestApp />
+    element: <TestApp />,
   },
   {
-    path: "/apitest",
+    path: "/app",
     element: <App />,
   },
 ]);

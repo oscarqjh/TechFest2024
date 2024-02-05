@@ -21,6 +21,7 @@ import {
 import { jellyTriangle } from "ldrs";
 import Chatbot from "../api/chatbot";
 import "./css/Recipecard.css";
+import { Link } from "react-router-dom";
 
 export default function RecipeCard() {
   const [ingredients, setIngredients] = useState("");
@@ -69,6 +70,25 @@ export default function RecipeCard() {
 
   return (
     <>
+      <div className="header">
+        <Link to={"/"} className="back-button">
+          <svg width="18px" height="18px" viewBox="0 0 24 24">
+            <path
+              vectorEffect="non-scaling-stroke"
+              d="M18.25 15.5a.75.75 0 00.75-.75v-9a.75.75 0 00-.75-.75h-9a.75.75 0 000 1.5h7.19L6.22 16.72a.75.75 0 101.06 1.06L17.5 7.56v7.19c0 .414.336.75.75.75z"
+            ></path>
+          </svg>
+          <div className="text">BACK</div>
+        </Link>
+      </div>
+      <div className="footer">
+        <span>
+          made with 💓 by{" "}
+          <a href="https://devpost.com/software/frai" target="_blank">
+            Team BluTech
+          </a>
+        </span>
+      </div>
       <div className="recipe-page-wrapper opacity-60">
         <Card className="w-[550px] h-[650px] bg-stone-800 opacity-80 rounded-xl m-10">
           <CardHeader>
