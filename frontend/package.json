@@ -10,12 +10,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@studio-freight/lenis": "^1.0.34",
     "axios": "^1.6.7",
+    "canvas": "^2.11.2",
+    "dotenv": "^16.4.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
     "gsap": "^3.12.5",
     "imagesloaded": "^5.0.0",
+    "openai": "^4.26.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.22.0"
+    "react-router-dom": "^6.22.0",
+    "split-type": "^0.3.4"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",

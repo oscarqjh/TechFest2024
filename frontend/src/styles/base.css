@@ -200,6 +200,14 @@ main {
   grid-area: prev;
 }
 
+#cdawrap {
+  grid-area: sponsor;
+}
+
+body #cdawrap .cda-sponsor-link {
+  white-space: normal !important;
+}
+
 .preview-wrap {
   grid-area: page;
   padding: 0 2rem 3rem;
@@ -223,7 +231,7 @@ main {
 
 .preview__img-wrap {
   grid-area: 1 / 1 / -1 / -1;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .preview__img {
@@ -236,8 +244,8 @@ main {
 .preview__img-inner {
   width: 100%;
   height: 100%;
-  background-size: 150%;
-  background-position: 0% 0%;
+  background-size: 120%;
+  background-position: 0% 45%;
   background-repeat: no-repeat;
 }
 
@@ -252,7 +260,7 @@ main {
   justify-self: center;
   grid-area: 1 / 1 / -1 / -1;
   position: relative;
-  transform: translate3d(0, 50%, 0);
+  transform: translate3d(0, 0, 0);
   pointer-events: none;
 }
 
