@@ -21,7 +21,7 @@ export default function LandingPage() {
       <main className={isLoading ? "loading" : null}>
         <div className="frame">
           <div className="frame__title">
-            <h1 className="frame__title-main">Github</h1>
+            <h1 className="frame__title-main"><a href="https://github.com/oscarqjh/TechFest2024">Github</a></h1>
             <a
               aria-label="Back to the article"
               className="frame__title-back"
