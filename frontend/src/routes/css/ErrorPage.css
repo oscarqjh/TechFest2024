@@ -1,0 +1,30 @@
+.error-wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: url("/img/food1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 80%;
+}
+
+.error-wrapper h1 {
+  font-size: 12rem;
+}
+
+.back-button {
+  display: flex;
+  transition: all 0.2s;
+}
+
+.back-button svg {
+  fill: rgb(218, 214, 209);
+  transform: rotate(270deg);
+}
+
+.back-button:hover p {
+  text-decoration: underline;
+}
