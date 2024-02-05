@@ -4,7 +4,7 @@ import { OpenAIHttp } from './common';
 import OpenAIService from './service/openAIService';
 import { Input } from "@/components/ui/input";
 
-const Chatbot = () => {
+const Chatbot = (props) => {
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([]);
 
@@ -36,7 +36,8 @@ const Chatbot = () => {
             role: "user",
             content: input
           }
-        ]
+        ],
+        recipe: props.context,
       }
       addItem(input)
       const thisresponse = await OpenAIService.askfrAIbot(data)

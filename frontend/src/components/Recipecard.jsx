@@ -214,7 +214,7 @@ export default function RecipeCard() {
             <CardTitle className="flex justify-center">Ask frAI</CardTitle>
           </CardHeader>
           <CardContent className="flex justify-start mb-10 h-[600px] flex flex-col">
-            <Chatbot />
+            <Chatbot context={recipe}/>
           </CardContent>
           
         </Card>

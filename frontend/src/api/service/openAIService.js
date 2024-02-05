@@ -36,6 +36,7 @@ const getRecipe = (data) => {
 const askfrAIbot = (data) => {
   const prompt = [];
   // console.log(data.messages)
+  // console.log(data.recipe)
   prompt.push(data.messages[0].content);
   prompt.push(
     "Please provide clear and concise answers. Reply this within 20-30 words."
@@ -49,6 +50,10 @@ const askfrAIbot = (data) => {
         role: "user",
         content: prompt.join(" "),
       },
+      {
+        role: "assistant",
+        content: data.recipe,
+      }
     ], 
   }
   return OpenAIHttp.post("/chat/completions", finalData)
