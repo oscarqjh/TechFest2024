@@ -1,7 +1,6 @@
 # Tech Fest 2024
 
-# FrAI_(/fraɪ/)_
-"Turning ordinary ingredients into extraordinary recipes."
+# FrAI *(/fraɪ/)* \n "Turning ordinary ingredients into extraordinary recipes."
 
 ---
 
