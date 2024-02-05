@@ -1,9 +1,25 @@
+import { useEffect, useLayoutEffect, useState } from "react";
 import "./css/LandingPage.css";
 
 export default function LandingPage() {
+  const [initialised, setInitialised] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // main event driver
+    if (!initialised) {
+      setInitialised(true);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1500);
+    }
+  }, []);
+
+  // useLayoutEffect(() => {}, []);
+
   return (
     <>
-      <main>
+      <main className={isLoading ? "loading" : null}>
         <div className="frame">
           <div className="frame__title">
             <h1 className="frame__title-main">Github</h1>
@@ -38,46 +54,21 @@ export default function LandingPage() {
               <div className="preview__img">
                 <div
                   className="preview__img-inner"
-                  style={{ backgroundImage: "url(img/1.jpg)" }}
+                  style={{ backgroundImage: "url(/img/1.jpg)" }}
                 ></div>
               </div>
             </div>
             <div className="preview__title">
               <h2 className="preview__title-main">
                 <span className="oh">
-                  <span className="oh__inner">Andesite</span>
+                  <span className="oh__inner">FrAI</span>
                 </span>
-                <span className="oh">
-                  <span className="oh__inner">aphanitic</span>
-                </span>
+                {/* <span className="oh">
+                  <span className="oh__inner"></span>
+                </span> */}
               </h2>
               <p className="preview__desc">
-                A volcanic rock of intermediate composition, between silica-poor
-                basalt and silica-rich rhyolite.
-              </p>
-            </div>
-          </div>
-          <div className="preview">
-            <div className="preview__img-wrap">
-              <div className="preview__img">
-                <div
-                  className="preview__img-inner"
-                  // style="background-image:url(img/2.jpg)"
-                ></div>
-              </div>
-            </div>
-            <div className="preview__title">
-              <h2 className="preview__title-main">
-                <span className="oh">
-                  <span className="oh__inner">Batholith</span>
-                </span>
-                <span className="oh">
-                  <span className="oh__inner">plutonic</span>
-                </span>
-              </h2>
-              <p className="preview__desc">
-                A large mass of intrusive igneous rock made mostly of felsic or
-                intermediate rock types.
+                FRAI: Elevating Your Culinary Experience, One Recipe at a Time.
               </p>
             </div>
           </div>
@@ -119,45 +110,6 @@ export default function LandingPage() {
               <div
                 className="content__thumbs-item"
                 // style="background-image:url(img/1_4.jpg)"
-              ></div>
-            </div>
-          </div>
-          <div className="content">
-            <div className="content__group">
-              <div className="content__title">
-                <span className="oh">
-                  <span className="oh__inner">Batholith</span>
-                </span>
-                <span className="oh">
-                  <span className="oh__inner">plutonic</span>
-                </span>
-              </div>
-              <div className="content__meta oh">
-                <span className="oh__inner">By Anna Walters</span>
-              </div>
-              <div className="content__text">
-                A batholith (from Ancient Greek bathos 'depth', and lithos
-                'rock') is a large mass of intrusive igneous rock (also called
-                plutonic rock), larger than 100 km2 (40 sq mi) in area, that
-                forms from cooled magma deep in Earth's crust.
-              </div>
-            </div>
-            <div className="content__thumbs">
-              <div
-                className="content__thumbs-item"
-                // style="background-image:url(img/2_1.jpg)"
-              ></div>
-              <div
-                className="content__thumbs-item"
-                // style="background-image:url(img/2_2.jpg)"
-              ></div>
-              <div
-                className="content__thumbs-item"
-                // style="background-image:url(img/2_3.jpg)"
-              ></div>
-              <div
-                className="content__thumbs-item"
-                // style="background-image:url(img/2_4.jpg)"
               ></div>
             </div>
           </div>

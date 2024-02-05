@@ -231,7 +231,7 @@ body #cdawrap .cda-sponsor-link {
 
 .preview__img-wrap {
   grid-area: 1 / 1 / -1 / -1;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .preview__img {
@@ -260,7 +260,7 @@ body #cdawrap .cda-sponsor-link {
   justify-self: center;
   grid-area: 1 / 1 / -1 / -1;
   position: relative;
-  transform: translate3d(0, 50%, 0);
+  transform: translate3d(0, 0, 0);
   pointer-events: none;
 }
 

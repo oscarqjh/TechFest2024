@@ -1,4 +1,4 @@
-import imagesloaded from "imagesloaded";
+// import { imagesLoaded } from "imagesloaded";
 
 /**
  * Linear interpolation
@@ -24,13 +24,13 @@ const getCursorPos = (ev) => {
  * @param {String} selector - Selector/scope from where images need to be preloaded. Default is 'img'
  */
 const preloadImages = (selector = "img") => {
-  return new Promise((resolve) => {
-    imagesLoaded(
-      document.querySelectorAll(selector),
-      { background: true },
-      resolve
-    );
-  });
+  // return new Promise((resolve) => {
+  //   imagesLoaded(
+  //     document.querySelectorAll(selector),
+  //     { background: true },
+  //     resolve
+  //   );
+  // });
 };
 
 /**
