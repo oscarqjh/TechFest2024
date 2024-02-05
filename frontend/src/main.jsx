@@ -24,7 +24,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/apitest",
+    path: "/app",
     element: <App />,
   },
 ]);
