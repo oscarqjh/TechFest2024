@@ -1,85 +1,84 @@
 import { useState } from "react";
 
-export default function RecipeCard({onSubmit}){
+export default function RecipeCard({ onSubmit }) {
+  const [ingredients, setIngredients] = useState("");
+  const [mealType, setmealType] = useState("");
+  const [cuisine, setCuisine] = useState("");
+  const [cookingTime, setCookingTime] = useState("");
+  const [complexity, setComplexity] = useState("");
 
-    const [ingredients, setIngredients] =  useState ("");
-    const [mealType, setmealType] =  useState ("");
-    const [cuisine, setCuisine] =  useState ("")
-    const [cookingTime, setCookingTime] =  useState ("")
-    const [complexity, setComplexity] =  useState ("")
-
-
-const handleSubmit = () => {
+  const handleSubmit = () => {
     const recipeData = {
-        ingredients,
-        mealType,
-        cuisine,
-        cookingTime,
-        complextiy
+      ingredients,
+      mealType,
+      cuisine,
+      cookingTime,
+      complexity,
     };
-    onSubmit(recipeData);
-};
+    console.log(recipeData);
+  };
 
-return (
+  return (
     <>
-    <div>Wassup Nignogs</div>
+      <div>Wassup Nignogs</div>
 
-    <input
+      <input
         id="ingredients"
         type="text"
         placeholder="Enter ingredients"
         value={ingredients}
         onChange={(e) => setIngredients(e.target.value)}
-    />
+      />
 
-    <div></div>
+      <div></div>
 
-    <select
+      <select
         id="mealType"
         value={mealType}
         onChange={(e) => setmealType(e.target.value)}
-    >
+      >
         <option value="Breakfast">Breakfast</option>
         <option value="Lunch">Lunch</option>
         <option value="Dinner">Dinner</option>
         <option value="Snack">Snack</option>
-    </select>
+      </select>
 
-    <div></div>
+      <div></div>
 
-    <input
+      <input
         id="cuisine"
         type="text"
         placeholder="e.g., Chinese, Japanese"
         value={cuisine}
-        onChange={(e) => setIngredients(e.target.value)}
-    />
+        onChange={(e) => setCuisine(e.target.value)}
+      />
 
-    <div></div>
+      <div></div>
 
-    <select
+      <select
         id="cookingTime"
         value={cookingTime}
-        onChange={(e) => setcookingTime(e.target.value)}
-    >
+        onChange={(e) => setCookingTime(e.target.value)}
+      >
         <option value="Less than 30 mins">Less than 30 mins</option>
         <option value="Less than 1 hour">Less than 1 hour</option>
         <option value="Less than 2 hours">Less than 2 hours</option>
         <option value="More than 2 hours">More than 2 hours</option>
-    </select>
+      </select>
 
-    <div></div>
+      <div></div>
 
-    <select
+      <select
         id="complexity"
         value={complexity}
         onChange={(e) => setComplexity(e.target.value)}
-    >
+      >
         <option value="Beginner">Beginner</option>
         <option value="Intermediate">Intermediate</option>
         <option value="Advanced">Advanced</option>
-    </select>
-        
+      </select>
+
+      <button onClick={handleSubmit}>Submit</button>
     </>
-)
+  );
 }

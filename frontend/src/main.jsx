@@ -8,7 +8,7 @@ import {
 import ErrorPage from "./routes/ErrorPage";
 import LandingPage from "./routes/LandingPage";
 import TestingPage from "./routes/TestingPage";
-import App from "./App"
+import App from "./routes/App";
 
 import "./styles/base.css";
 
@@ -25,8 +25,8 @@ const router = createBrowserRouter([
   },
   {
     path: "/apitest",
-    element: <App />
-  }
+    element: <App />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
