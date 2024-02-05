@@ -1,6 +1,6 @@
-# Tech Fest 2024
+# Tech Fest 2024 - Team 15(2B)
 
-# FrAI _(/fraɪ/)_ <br/> _"Turning ordinary ingredients into extraordinary recipes."_
+# FrAI _(/fraɪ/)_ <br/> ##_"Turning ordinary ingredients into extraordinary recipes."_ <br/> ##By BluTech
 
 ---
 
