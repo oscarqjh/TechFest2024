@@ -1,73 +1,30 @@
-import imagesloaded from "imagesloaded";
+// Map number x from range [a, b] to [c, d]
+const map = (x, a, b, c, d) => ((x - a) * (d - c)) / (b - a) + c;
 
-/**
- * Linear interpolation
- * @param {Number} a - first value to interpolate
- * @param {Number} b - second value to interpolate
- * @param {Number} n - amount to interpolate
- */
+// Linear interpolation
 const lerp = (a, b, n) => (1 - n) * a + n * b;
 
-/**
- * Gets the cursor position
- * @param {Event} ev - mousemove event
- */
-const getCursorPos = (ev) => {
+const calcWinsize = () => {
+  return { width: window.innerWidth, height: window.innerHeight };
+};
+
+// Gets the mouse position
+const getMousePos = (e) => {
   return {
-    x: ev.clientX,
-    y: ev.clientY,
+    x: e.clientX,
+    y: e.clientY,
   };
 };
 
-/**
- * Preload images
- * @param {String} selector - Selector/scope from where images need to be preloaded. Default is 'img'
- */
-const preloadImages = (selector = "img") => {
-  return new Promise((resolve) => {
-    imagesLoaded(
-      document.querySelectorAll(selector),
-      { background: true },
-      resolve
-    );
-  });
+const distance = (x1, y1, x2, y2) => {
+  var a = x1 - x2;
+  var b = y1 - y2;
+
+  return Math.hypot(a, b);
 };
 
-/**
- * Wraps the elements of an array.
- * @param {Array} arr - the array of elements to be wrapped
- * @param {String} wrapType - the type of the wrap element ('div', 'span' etc)
- * @param {String} wrapClass - the wrap class(es)
- */
-const wrapLines = (arr, wrapType, wrapClass) => {
-  arr.forEach((el) => {
-    const wrapEl = document.createElement(wrapType);
-    wrapEl.classList = wrapClass;
-    el.parentNode.appendChild(wrapEl);
-    wrapEl.appendChild(el);
-  });
-};
+// Generate a random float.
+const getRandomFloat = (min, max) =>
+  (Math.random() * (max - min) + min).toFixed(2);
 
-/**
- * Checks if an element is in the viewport
- * @param {Element} elem - the element to be checked
- */
-const isInViewport = (elem) => {
-  var bounding = elem.getBoundingClientRect();
-  return (
-    ((bounding.bottom >= 0 &&
-      bounding.bottom <=
-        (window.innerHeight || document.documentElement.clientHeight)) ||
-      (bounding.top >= 0 &&
-        bounding.top <=
-          (window.innerHeight || document.documentElement.clientHeight))) &&
-    ((bounding.right >= 0 &&
-      bounding.right <=
-        (window.innerWidth || document.documentElement.clientWidth)) ||
-      (bounding.left >= 0 &&
-        bounding.left <=
-          (window.innerWidth || document.documentElement.clientWidth)))
-  );
-};
-
-export { lerp, getCursorPos, preloadImages, wrapLines, isInViewport };
+export { map, lerp, calcWinsize, getMousePos, distance, getRandomFloat };
