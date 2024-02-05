@@ -9,7 +9,7 @@ const OpenAIHttp = axios.create({
   credentials: true,
   headers: {
     "Content-type": "application/json",
-    Authorization: `Bearer ${openaiAPIKey}`,
+    "Authorization": `Bearer ${openaiAPIKey}`
   },
 });
 

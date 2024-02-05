@@ -19,23 +19,31 @@ const getRecipe = (data) => {
     "Also givve the recipe a suitable name in its local language based on cuisine performance."
   );
 
-  const messages = [
-    {
-      role: "system",
-      content: prompt.join(" "),
-    },
-  ];
 
   const finalData = {
     model: "gpt-3.5-turbo",
-    messages: messages,
+    messages:[
+      {
+        role: "system",
+        content: prompt.join(" "),
+      },
+    ],
   };
 
   return OpenAIHttp.post("/chat/completions", finalData);
 };
 
+const askfrAIbot = (data) => {
+  const finalData = {
+    model: "gpt-3.5-turbo",
+    messages: data.messages,
+  }
+  return OpenAIHttp.post("/chat/completions", finalData)
+}
+
 const OpenAIService = {
   getRecipe,
+  askfrAIbot
 };
 
 export default OpenAIService;
