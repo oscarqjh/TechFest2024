@@ -1,5 +1,6 @@
 import { useEffect, useLayoutEffect, useState } from "react";
 import "./css/LandingPage.css";
+import MagneticButton from "../components/MagneticButton";
 
 export default function LandingPage() {
   const [initialised, setInitialised] = useState(false);
@@ -54,7 +55,10 @@ export default function LandingPage() {
               <div className="preview__img">
                 <div
                   className="preview__img-inner"
-                  style={{ backgroundImage: "url(/img/1.jpg)" }}
+                  style={{
+                    backgroundImage: "url(/img/food1.jpg)",
+                    filter: "brightness(70%)",
+                  }}
                 ></div>
               </div>
             </div>
@@ -70,47 +74,7 @@ export default function LandingPage() {
               <p className="preview__desc">
                 FRAI: Elevating Your Culinary Experience, One Recipe at a Time.
               </p>
-            </div>
-          </div>
-        </section>
-
-        <section className="content-wrap">
-          <div className="content">
-            <div className="content__group">
-              <div className="content__title">
-                <span className="oh">
-                  <span className="oh__inner">Andesite</span>
-                </span>
-                <span className="oh">
-                  <span className="oh__inner">aphanitic</span>
-                </span>
-              </div>
-              <div className="content__meta oh">
-                <span className="oh__inner">By James Maurice Rojo</span>
-              </div>
-              <div className="content__text">
-                Andesite (/ˈændəzaɪt/) is a volcanic rock of intermediate
-                composition. In a general sense, it is the intermediate type
-                between silica-poor basalt and silica-rich rhyolite.
-              </div>
-            </div>
-            <div className="content__thumbs">
-              <div
-                className="content__thumbs-item"
-                // style="background-image:url(img/1_1.jpg)"
-              ></div>
-              <div
-                className="content__thumbs-item"
-                // style="background-image:url(img/1_2.jpg)"
-              ></div>
-              <div
-                className="content__thumbs-item"
-                // style="background-image:url(img/1_3.jpg)"
-              ></div>
-              <div
-                className="content__thumbs-item"
-                // style="background-image:url(img/1_4.jpg)"
-              ></div>
+              <MagneticButton />
             </div>
           </div>
         </section>
