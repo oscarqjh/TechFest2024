@@ -1,6 +1,7 @@
-import {ImgGenHttp} from  "./common_ig.js";
+import {ImgGenHttp} from  "../common.js";
 import { Buffer } from 'buffer';
 
+// Function to generate an image using the HF model, returning image link
 async function generateImage(dishName, descriptionOfDish) {
     try {
         console.log("Image Start")
@@ -18,6 +19,7 @@ async function generateImage(dishName, descriptionOfDish) {
     }
 }
 
+// Post request to HF model to generate image, then convert the image bytes to a URL
 async function query(payload) {
     try {
         console.log("Generating Image...")
@@ -36,6 +38,7 @@ async function query(payload) {
     }
 }
 
+// Convert image bytes to a URL
 const imageBytesConverter = (imageBytes) => {
     console.log("Converting Image")
     // Convert image bytes to a Uint8Array
@@ -55,13 +58,5 @@ const imageBytesConverter = (imageBytes) => {
     return dataUrl;
 }
 
-
-
-// // Example usage:
-// console.log("Image Start")
-// const dishName = "Spaghetti Bolognese";
-// const descriptionOfDish = "A classic Italian pasta dish with rich tomato sauce and savory ground beef.";
-// const generatedImage = await generateImage(dishName, descriptionOfDish);
-// console.log(generatedImage); // Use the generated image as needed
 
 export {generateImage};
