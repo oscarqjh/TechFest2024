@@ -22,6 +22,7 @@ import { jellyTriangle } from "ldrs";
 import Chatbot from "../api/chatbot";
 import "./css/Recipecard.css";
 import { Link } from "react-router-dom";
+import { generateImage } from "../api/service/ImageGenerator";
 
 export default function RecipeCard() {
   const [ingredients, setIngredients] = useState("");
@@ -32,6 +33,7 @@ export default function RecipeCard() {
   const [recipe, setRecipe] = useState("");
   const [buttonDisable, setButtonDisable] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
+  const [generatedImgUrl, setGeneratedImgUrl] = useState("");
   jellyTriangle.register();
 
   const handleSubmit = async () => {
@@ -46,9 +48,12 @@ export default function RecipeCard() {
     console.log(recipeData);
     try {
       const response = await OpenAIService.getRecipe(recipeData);
-      setIsLoading(false);
       setRecipe(response.data.choices[0].message.content);
+      const tempUrl = await generateImage(response.data.choices[0].message.content.split("Ingredients")[0])
+      setGeneratedImgUrl(tempUrl);
+      console.log("Generated",generatedImgUrl);
       console.log(response.data);
+      setIsLoading(false);
     } catch (e) {
       console.log(e);
     }
@@ -202,9 +207,18 @@ export default function RecipeCard() {
                 ></l-jelly-triangle>
               </div>
             ) : recipe === "" ? (
-              <div className="text-center">Recipe will be shown here...</div>
+              <div className="text-center">
+                Recipe will be shown here...
+              </div>
             ) : (
-              <div className="whitespace-pre-line overflow-auto">{recipe}</div>
+              <>
+              <div className="whitespace-pre-line overflow-auto">
+                <div>
+                  {generatedImgUrl === "" ? null : <img src={generatedImgUrl} alt="recipe" />}
+                </div>
+                {recipe}
+              </div>
+              </>
             )}
           </CardContent>
         </Card>

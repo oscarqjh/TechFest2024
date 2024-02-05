@@ -28,7 +28,7 @@ async function query(payload) {
 
         console.log("Image Generated")
         // Convert array buffer to image link
-        const imageUrl = imageBytesConverter(await response.data);
+        const imageUrl = await imageBytesConverter(await response.data);
         
         return imageUrl;
     }
@@ -39,7 +39,7 @@ async function query(payload) {
 }
 
 // Convert image bytes to a URL
-const imageBytesConverter = (imageBytes) => {
+const imageBytesConverter = async (imageBytes) => {
     console.log("Converting Image")
     // Convert image bytes to a Uint8Array
     const uint8Array = new Uint8Array(imageBytes);
