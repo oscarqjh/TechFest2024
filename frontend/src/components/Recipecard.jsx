@@ -188,7 +188,7 @@ export default function RecipeCard() {
           </CardFooter>
         </Card>
 
-        <Card className="w-[550px] h-[650px] bg-stone-800 opacity-80 rounded-xl m-10">
+        <Card className="w-[600px] h-[650px] bg-stone-800 opacity-80 rounded-xl m-5">
           <CardHeader>
             <CardTitle className="flex justify-center">Recipe</CardTitle>
           </CardHeader>
