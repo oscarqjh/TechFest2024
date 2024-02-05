@@ -1,13 +1,14 @@
 import { useState } from "react";
+import OpenAIService from "../api/service/openAIService";
 
-export default function RecipeCard({ onSubmit }) {
+export default function RecipeCard() {
   const [ingredients, setIngredients] = useState("");
   const [mealType, setmealType] = useState("");
   const [cuisine, setCuisine] = useState("");
   const [cookingTime, setCookingTime] = useState("");
   const [complexity, setComplexity] = useState("");
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const recipeData = {
       ingredients,
       mealType,
@@ -16,6 +17,12 @@ export default function RecipeCard({ onSubmit }) {
       complexity,
     };
     console.log(recipeData);
+    try {
+      const response = await OpenAIService.getRecipe(recipeData);
+      console.log(response.data);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
