@@ -200,6 +200,14 @@ main {
   grid-area: prev;
 }
 
+#cdawrap {
+  grid-area: sponsor;
+}
+
+body #cdawrap .cda-sponsor-link {
+  white-space: normal !important;
+}
+
 .preview-wrap {
   grid-area: page;
   padding: 0 2rem 3rem;
