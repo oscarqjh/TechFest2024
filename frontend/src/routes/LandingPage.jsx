@@ -12,11 +12,9 @@ export default function LandingPage() {
       setInitialised(true);
       setTimeout(() => {
         setIsLoading(false);
-      }, 1500);
+      }, 2000);
     }
   }, []);
-
-  // useLayoutEffect(() => {}, []);
 
   return (
     <>
@@ -44,7 +42,7 @@ export default function LandingPage() {
           </a>
           <div className="cdawrap" id="cdawrap">
             <a className="cda-sponsor-link" href="" target="_blank">
-              Frai: This project is submmited <br></br>to Techfest 2024
+              Team BluTech: This project is <br></br>submmited to Techfest 2024
             </a>
           </div>
         </div>
