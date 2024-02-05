@@ -34,9 +34,22 @@ const getRecipe = (data) => {
 };
 
 const askfrAIbot = (data) => {
+  const prompt = [];
+  // console.log(data.messages)
+  prompt.push(data.messages[0].content);
+  prompt.push(
+    "Please provide clear and concise answers. Reply this within 20-30 words."
+  );
+  
+
   const finalData = {
     model: "gpt-3.5-turbo",
-    messages: data.messages,
+    messages: [
+      {
+        role: "user",
+        content: prompt.join(" "),
+      },
+    ], 
   }
   return OpenAIHttp.post("/chat/completions", finalData)
 }
