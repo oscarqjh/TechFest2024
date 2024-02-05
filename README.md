@@ -1,6 +1,6 @@
 # Tech Fest 2024 - Team 15(2B)
 
-# FrAI _(/fraɪ/)_ <br/> ##_"Turning ordinary ingredients into extraordinary recipes."_ <br/> ##By BluTech
+# FrAI _(/fraɪ/)_ <br/> _"Turning ordinary ingredients into extraordinary recipes."_ <br/> By BluTech
 
 ---
 
@@ -16,7 +16,7 @@
 
 ![Cover](./assets/cover.png)
 
-### Team Members:
+### Team Members of BluTech:
 
 - [Oscar Qian](https://github.com/oscarqjh)
 - [Iain Roderick Tay](https://github.com/eeyearn)
