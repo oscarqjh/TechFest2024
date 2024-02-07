@@ -25,7 +25,7 @@
 
 ### Website Link: https://tech-fest2024.vercel.app/
 
-### Video Demo Link:
+### Video Demo Link: https://youtu.be/Q79C6Cxpo-A?si=ev4-9D2ccRDKcoPI
 
 ---
 
@@ -74,3 +74,10 @@ Our chatbot functionality is powered by ChatGPT 3.5, transforming the interactio
 - Expanding the database of recipes and incorporating more cuisines.
 - Integrating additional features such as meal planning and grocery list generation.
 - Exploring partnerships with food suppliers or grocery delivery services.
+
+---
+
+## NTU Techfest 2024
+
+This project won 'Top 10 Finalist' and was submitted to Devpost for the annual flagship hackathon of NTU SCSE Club.   
+[Find the Submission here!](https://devpost.com/software/frai)
